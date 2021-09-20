@@ -1,0 +1,161 @@
+/* SLIMBOX */
+
+#lbOverlay {
+	position: fixed;
+	z-index: 9999;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #fff;
+	cursor: pointer;
+	padding: 0;
+}
+
+#lbCenter,
+#lbBottomContainer {
+	padding: 0;
+	position: fixed;
+	z-index: 10000;
+}
+
+#lbBottomContainer {
+	overflow: hidden;
+}
+
+.lbLoading {
+}
+.lbLoading:before {
+    background: #fff;
+
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    
+	-moz-box-shadow: 0 1px 5px rgba(0, 0, 0, .25);
+	-webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, .25);
+	box-shadow: 0 1px 5px rgba(0, 0, 0, .25);
+
+    color: rgba(0, 0, 0, .5);
+    content: 'Loading image, please wait...';
+    height: 22px !important;
+    padding: 1em;
+    text-align: center;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, .125);
+}
+
+#lbCenter {
+}
+
+#lbImage {
+    cursor: pointer;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-repeat: no-repeat;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+#lbImage,
+#lbSlide {
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+}
+
+#lbPrevLink,
+#lbNextLink,
+#lbCloseLink {
+	color: rgba(255, 255, 255, .9);
+	display: block;
+	position: absolute;
+	top: 7px;
+	text-shadow: none;
+	text-transform: uppercase;
+}
+
+#lbPrevLink:before,
+#lbNextLink:after,
+#lbCloseLink:before {
+    font-size: 22px;
+}
+
+#lbPrevLink:before {
+    content: '← ';
+}
+
+#lbNextLink:after {
+    content: ' →';
+}
+
+#lbCloseLink:before {
+    content: '';
+}
+
+#lbPrevLink:hover,
+#lbNextLink:hover {
+	color: #fff;
+	text-decoration: none;
+	text-shadow: 0 1px 3px rgba(255, 255, 255, .75);
+}
+
+#lbPrevLink {
+	right: 185px;
+}
+
+#lbNextLink {
+	right: 55px;
+}
+
+#lbBottom {
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+	color: rgba(255, 255, 255, .9);
+	line-height: 18px;
+	text-align: left;
+	padding-top: 10px;
+	position: relative;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, .125);
+}
+
+#lbCloseLink {
+	right: 0;
+}
+
+#lbCloseLink:hover {
+	color: #f60;
+	text-shadow: 0 1px 3px rgba(255, 102, 0, .5);
+}
+
+#lbCaption,
+#lbNumber {
+}
+
+#lbNumber {
+    position: absolute;
+    right: 130px;
+    text-align: center;
+    top: 10px;
+    width: 50px;
+}
+
+#lbCaption {
+	font-weight: normal;
+}
+
+@media screen and (max-width: 479px) {
+	#lbCaption {
+		display: none;
+	}
+	#lbNumber {
+		margin: 0 auto;
+		position: static;
+		right: auto;
+	}
+	#lbPrevLink {
+		left: 55px;
+		right: auto;
+	}
+}

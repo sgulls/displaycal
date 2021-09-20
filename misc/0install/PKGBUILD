@@ -1,0 +1,30 @@
+# Maintainer: ${MAINTAINER} <${MAINTAINER_EMAIL}>
+
+pkgname=${APPNAME_LOWER}-0install
+_pkgname=${PACKAGE}
+pkgver=${VERSION}
+pkgrel=1
+pkgdesc="${SUMMARY}"
+arch=('any')
+url="${URL}"
+license=('GPL3')
+makedepends=('python2>=${PY_MINVERSION}' 'iptables-nft')
+depends=('python2>=${PY_MINVERSION}' 'wxpython>=${WX_MINVERSION}' 'blas' 'python2-numpy' 'sdl2_mixer' 'desktop-file-utils' 'hicolor-icon-theme' 'python2-psutil' 'xdg-utils' 'zeroinstall-injector')
+optdepends=('argyllcms: calibration & profiling support')
+conflicts=('dispcalgui' 'dispcalgui-0install' '${APPNAME_LOWER}')
+install=${pkgname}.install
+
+source=("${HTTPURL}download/${_pkgname}-${pkgver}.tar.gz")
+
+md5sums=('${MD5}')
+
+package() {
+	cd "${srcdir}/${_pkgname}-${pkgver}"
+
+	PYTHONPATH=. python2 util/0install_desktop.py "$pkgdir/usr/share"
+
+    # Fix permissions - read for all, eXecute for directories and scripts
+    chmod -R +rX "${pkgdir}"
+}
+
+# vim:set ts=2 sw=2 et:

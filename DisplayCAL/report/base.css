@@ -1,0 +1,167 @@
+* {
+	font-family: sans-serif;
+}
+h1 span {
+	border-radius: 4.5px;
+	-moz-border-radius: 4.5px;
+	-webkit-border-radius: 4.5px;
+	display: inline-block;
+	height: 9px;
+	font-size: 1px;
+	margin: 3px 6px 0 0;
+	width: 9px;
+}
+h1 span.r {
+	background: #f00000;
+}
+h1 span.g {
+	background: #00f000;
+}
+h1 span.b {
+	background: #0000f0;
+	margin-right: 11px;
+}
+h3 {
+	font-size: 1.5em;
+	font-weight: normal;
+	margin-bottom: .5em;
+}
+table {
+	border: none;
+	border-spacing: 0;
+	width: 100%;
+}
+td, th {
+	border: none;
+	border-bottom: 1px solid silver;
+	padding: .125em .25em .125em 0;
+	text-align: center;
+	vertical-align: middle;
+	white-space: nowrap;
+}
+.graph {
+	page-break-inside: avoid;
+}
+.graph td div {
+	margin: 0 auto;
+}
+.graph td,
+.graph th {
+	border-bottom: 0;
+	font-weight: normal;
+	padding: 0;
+}
+.graph th {
+	padding: 0 .5em 0 0;
+	text-align: right;
+}
+.graph .last-col {
+	text-align: left;
+}
+.graph .col,
+.graph .canvas {
+	font-size: 1px;
+	overflow: hidden;
+	position: relative;
+}
+.canvas .inner {
+	position: absolute;
+}
+.graph .wrap {
+	height: 7px;
+	position: absolute;
+	z-index: 0;
+}
+.graph .wrap-act {
+	height: 5px;
+	z-index: 1;
+}
+.graph .ref,
+.graph .act {
+	background: #fff;
+	border: 2px solid silver;
+	height: 6px;
+	left: 50%;
+	position: absolute;
+}
+.graph .ref {
+	border-radius: 7px;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	height: 10px;
+	margin-bottom: -7px;
+	margin-left: -7px;
+	width: 10px;
+}
+.graph .act {
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	height: 6px;
+	margin-bottom: -5px;
+	margin-left: -5px;
+	width: 6px;
+}
+.info td, .info th, td.first-column, th.first-column {
+	text-align: left;
+}
+.info th {
+	padding-right: 1em;
+}
+td.bar {
+	padding: 0;
+	text-align: left;
+}
+td.patch, td.sample_id {
+	border-left: none;
+	border-right: none;
+	padding: 0;
+	vertical-align: top;
+	width: 1.75em;
+}
+td + td.patch > .patch {
+	border-left: 1px solid silver;
+}
+td.patch + td.patch > .patch {
+	border-left: none;
+	border-right: 1px solid silver;
+}
+.overview td.patch {
+	border-bottom: none;
+}
+.overview tr.last-row td.patch {
+	border-bottom: 1px solid silver;
+}
+div.patch, div.sample_id {
+	padding: .125em .25em .125em 0;
+	width: 1.75em;
+}
+td.sample_id,
+div.sample_id {
+	width: auto;
+}
+.ok {
+	color: #339900;
+}
+.warn {
+	color: #FF3300;
+	font-weight: bold;
+}
+.ko {
+	color: red;
+	font-weight: bold;
+}
+.hidden {
+	color: white;
+	visibility: hidden;
+}
+td.ok, td.ko {
+	line-height: 1em;
+}
+.statonly,
+tr.statonly td  {
+	color: gray;
+}
+tr.verbose {
+	display: none;
+}

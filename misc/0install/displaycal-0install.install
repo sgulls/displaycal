@@ -1,0 +1,15 @@
+post_install() {
+	/bin/touch --no-create /usr/share/icons/hicolor &> /dev/null || true
+	xdg-icon-resource forceupdate
+	xdg-desktop-menu forceupdate
+}
+
+post_upgrade() {
+	post_install
+}
+
+post_remove() {
+	post_install
+}
+
+# vim:set ts=2 sw=2 et:

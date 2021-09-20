@@ -1,0 +1,875 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource>
+  <object class="wxFrame" name="lut3dframe" subclass="DisplayCAL.LUT3DFrame">
+    <object class="wxBoxSizer">
+      <orient>wxVERTICAL</orient>
+      <object class="sizeritem">
+        <object class="wxScrolledWindow" name="panel">
+          <object class="wxBoxSizer">
+            <orient>wxVERTICAL</orient>
+            <object class="sizeritem">
+              <object class="wxFlexGridSizer">
+                <object class="sizeritem">
+                  <object class="wxStaticText">
+                    <label>3dlut.input.profile</label>
+                  </object>
+                  <flag>wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                  <border>8</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="FileBrowseButtonWithHistory" name="input_profile_ctrl">
+                    <message>profile.input</message>
+                    <toolTip>3dlut.input.profile</toolTip>
+                    <wildcard>filetype.icc|*.icc;*.icm</wildcard>
+                  </object>
+                  <flag>wxEXPAND|wxALIGN_CENTRE_VERTICAL</flag>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxStaticText" name="lut3d_trc_label">
+                    <label>trc</label>
+                  </object>
+                  <flag>wxTOP</flag>
+                  <border>4</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxFlexGridSizer">
+                    <object class="sizeritem">
+                      <object class="wxBoxSizer">
+                        <object class="sizeritem">
+                          <object class="wxRadioButton" name="lut3d_trc_apply_none_ctrl">
+                            <label>unmodified</label>
+                            <style>wxRB_GROUP</style>
+                          </object>
+                          <flag>wxTOP|wxBOTTOM|wxALIGN_CENTRE_VERTICAL</flag>
+                          <border>4</border>
+                        </object>
+                        <object class="sizeritem">
+                          <object class="wxStaticBitmap" name="lut3d_input_value_clipping_bmp">
+                            <size>16,16</size>
+                            <bitmap>../theme/icons/16x16/dialog-warning.png</bitmap>
+                            <hidden>1</hidden>
+                          </object>
+                          <flag>wxLEFT|wxALIGN_CENTRE_VERTICAL</flag>
+                          <border>16</border>
+                        </object>
+                        <object class="sizeritem">
+                          <object class="wxStaticText" name="lut3d_input_value_clipping_label">
+                            <label>warning.input_value_clipping</label>
+                            <fg>#F07F00</fg>
+                            <hidden>1</hidden>
+                          </object>
+                          <flag>wxLEFT|wxALIGN_CENTRE_VERTICAL</flag>
+                          <border>8</border>
+                        </object>
+                        <orient>wxHORIZONTAL</orient>
+                      </object>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxBoxSizer">
+                        <object class="sizeritem">
+                          <object class="wxRadioButton" name="lut3d_trc_apply_black_offset_ctrl">
+                            <label>apply_black_output_offset</label>
+                          </object>
+                          <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                        </object>
+                        <orient>wxHORIZONTAL</orient>
+                      </object>
+                      <flag>wxTOP|wxBOTTOM</flag>
+                      <border>8</border>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxBoxSizer">
+                        <object class="sizeritem">
+                          <object class="wxRadioButton" name="lut3d_trc_apply_ctrl">
+                            <label/>
+                          </object>
+                          <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                        </object>
+                        <object class="spacer">
+                          <size>0,24</size>
+                          <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                        </object>
+                        <object class="sizeritem">
+                          <object class="wxChoice" name="lut3d_trc_ctrl">
+                            <enabled>0</enabled>
+                          </object>
+                          <flag>wxLEFT|wxALIGN_CENTRE_VERTICAL</flag>
+                          <border>4</border>
+                        </object>
+                        <object class="sizeritem">
+                          <object class="wxStaticText" name="lut3d_trc_gamma_label">
+                            <label>trc.gamma</label>
+                            <enabled>0</enabled>
+                          </object>
+                          <flag>wxLEFT|wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                          <border>8</border>
+                        </object>
+                        <object class="sizeritem">
+                          <object class="wxComboBox" name="lut3d_trc_gamma_ctrl">
+                            <size>75,-1</size>
+                            <content>
+                              <item>2.2</item>
+                              <item>2.4</item>
+                            </content>
+                            <enabled>0</enabled>
+                          </object>
+                          <flag>wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                          <border>8</border>
+                        </object>
+                        <object class="sizeritem">
+                          <object class="wxChoice" name="lut3d_trc_gamma_type_ctrl">
+                            <content>
+                              <item/>
+                            </content>
+                            <enabled>0</enabled>
+                          </object>
+                          <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                        </object>
+                        <object class="sizeritem">
+                          <object class="wxStaticText" name="lut3d_hdr_peak_luminance_label">
+                            <label>display_peak_luminance</label>
+                          </object>
+                          <flag>wxLEFT|wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                          <border>8</border>
+                        </object>
+                        <object class="sizeritem">
+                          <object class="FloatSpin" name="lut3d_hdr_peak_luminance_ctrl">
+                            <size>75,-1</size>
+                            <min_val>100</min_val>
+                            <max_val>10000</max_val>
+                            <increment>1</increment>
+                            <digits>0</digits>
+                          </object>
+                          <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                        </object>
+                        <object class="sizeritem">
+                          <object class="wxStaticText" name="lut3d_hdr_peak_luminance_ctrl_label">
+                            <label>cd/m²</label>
+                          </object>
+                          <flag>wxLEFT|wxALIGN_CENTRE_VERTICAL</flag>
+                          <border>4</border>
+                        </object>
+                        <orient>wxHORIZONTAL</orient>
+                      </object>
+                      <flag>wxBOTTOM</flag>
+                      <border>8</border>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxFlexGridSizer">
+                        <object class="sizeritem">
+                          <object class="wxStaticText" name="lut3d_hdr_sat_ctrl_lum_label">
+                            <label>preserve_luminance</label>
+                          </object>
+                          <flag>wxLEFT|wxALIGN_CENTRE_VERTICAL</flag>
+                          <border>18</border>
+                        </object>
+                        <object class="sizeritem">
+                          <object class="wxSlider" name="lut3d_hdr_sat_ctrl">
+                            <size>128,-1</size>
+                            <value>50</value>
+                            <min>0</min>
+                            <max>100</max>
+                          </object>
+                          <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                        </object>
+                        <object class="sizeritem">
+                          <object class="wxStaticText" name="lut3d_hdr_sat_ctrl_sat_label">
+                            <label>preserve_saturation</label>
+                          </object>
+                          <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                        </object>
+                        <object class="sizeritem">
+                          <object class="wxStaticText" name="lut3d_hdr_sat_ctrl_lum_val">
+                            <label>50%</label>
+                          </object>
+                          <flag>wxALIGN_RIGHT</flag>
+                        </object>
+                        <object class="spacer"/>
+                        <object class="sizeritem">
+                          <object class="wxStaticText" name="lut3d_hdr_sat_ctrl_sat_val">
+                            <label>50%</label>
+                          </object>
+                        </object>
+                        <cols>3</cols>
+                        <rows>2</rows>
+                        <vgap>0</vgap>
+                        <hgap>8</hgap>
+                      </object>
+                      <flag>wxBOTTOM</flag>
+                      <border>8</border>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxBoxSizer">
+                        <object class="spacer">
+                          <size>18,0</size>
+                        </object>
+                        <object class="sizeritem">
+                          <object class="wxStaticText" name="lut3d_hdr_hue_label">
+                            <label>preserve_hue</label>
+                          </object>
+                          <flag>wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                          <border>8</border>
+                        </object>
+                        <object class="sizeritem">
+                          <object class="wxSlider" name="lut3d_hdr_hue_ctrl">
+                            <size>128,-1</size>
+                            <min>0</min>
+                            <max>100</max>
+                            <XRCED>
+                              <events>EVT_SLIDER</events>
+                            </XRCED>
+                          </object>
+                          <flag>wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                          <border>4</border>
+                        </object>
+                        <object class="sizeritem">
+                          <object class="wxSpinCtrl" name="lut3d_hdr_hue_intctrl">
+                            <size>65,-1</size>
+                            <min>0</min>
+                            <max>100</max>
+                            <XRCED>
+                              <events>EVT_TEXT</events>
+                            </XRCED>
+                          </object>
+                          <flag>wxLEFT|wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                          <border>4</border>
+                        </object>
+                        <object class="sizeritem">
+                          <object class="wxStaticText" name="lut3d_hdr_hue_intctrl_label">
+                            <label>%</label>
+                            <hidden>1</hidden>
+                          </object>
+                          <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                        </object>
+                        <orient>wxHORIZONTAL</orient>
+                      </object>
+                      <flag>wxBOTTOM</flag>
+                      <border>8</border>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxBoxSizer">
+                        <object class="sizeritem">
+                          <object class="wxFlexGridSizer">
+                            <object class="sizeritem">
+                              <object class="wxStaticText" name="lut3d_hdr_minmll_label">
+                                <label>mastering_display_black_luminance</label>
+                              </object>
+                              <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                            </object>
+                            <object class="sizeritem">
+                              <object class="wxBoxSizer">
+                                <object class="sizeritem">
+                                  <object class="FloatSpin" name="lut3d_hdr_minmll_ctrl">
+                                    <size>75,-1</size>
+                                    <min_val>0.0</min_val>
+                                    <max_val>0.1</max_val>
+                                    <increment>0.0001</increment>
+                                    <digits>4</digits>
+                                  </object>
+                                  <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                                </object>
+                                <object class="sizeritem">
+                                  <object class="wxStaticText" name="lut3d_hdr_minmll_ctrl_label">
+                                    <label>cd/m²</label>
+                                  </object>
+                                  <flag>wxLEFT|wxALIGN_CENTRE_VERTICAL</flag>
+                                  <border>4</border>
+                                </object>
+                                <orient>wxHORIZONTAL</orient>
+                              </object>
+                            </object>
+                            <object class="sizeritem">
+                              <object class="wxStaticText" name="lut3d_hdr_maxmll_label">
+                                <label>mastering_display_peak_luminance</label>
+                              </object>
+                              <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                            </object>
+                            <object class="sizeritem">
+                              <object class="wxBoxSizer">
+                                <object class="sizeritem">
+                                  <object class="FloatSpin" name="lut3d_hdr_maxmll_ctrl">
+                                    <size>75,-1</size>
+                                    <min_val>100</min_val>
+                                    <max_val>10000</max_val>
+                                    <increment>1</increment>
+                                    <digits>0</digits>
+                                  </object>
+                                  <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                                </object>
+                                <object class="sizeritem">
+                                  <object class="wxStaticText" name="lut3d_hdr_maxmll_ctrl_label">
+                                    <label>cd/m²</label>
+                                  </object>
+                                  <flag>wxLEFT|wxALIGN_CENTRE_VERTICAL</flag>
+                                  <border>4</border>
+                                </object>
+                                <object class="sizeritem">
+                                  <object class="wxCheckBox" name="lut3d_hdr_maxmll_alt_clip_cb">
+                                    <label>adjust_rolloff</label>
+                                  </object>
+                                  <flag>wxLEFT|wxALIGN_CENTRE_VERTICAL</flag>
+                                  <border>8</border>
+                                </object>
+                                <orient>wxHORIZONTAL</orient>
+                              </object>
+                            </object>
+                            <object class="sizeritem">
+                              <object class="wxStaticText" name="lut3d_hdr_diffuse_white_label">
+                                <label>3dlut.hdr.rolloff.diffuse_white</label>
+                              </object>
+                              <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                            </object>
+                            <object class="sizeritem">
+                              <object class="wxBoxSizer">
+                                <object class="sizeritem">
+                                  <object class="wxStaticText" name="lut3d_hdr_diffuse_white_txt">
+                                  </object>
+                                  <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                                </object>
+                                <object class="sizeritem">
+                                  <object class="wxStaticText" name="lut3d_hdr_diffuse_white_txt_label">
+                                    <label>cd/m²</label>
+                                  </object>
+                                  <flag>wxLEFT|wxALIGN_CENTRE_VERTICAL</flag>
+                                  <border>4</border>
+                                </object>
+                                <orient>wxHORIZONTAL</orient>
+                              </object>
+                            </object>
+                            <object class="sizeritem">
+                              <object class="wxStaticText" name="lut3d_hdr_ambient_luminance_label">
+                                <label>calibration.ambient_viewcond_adjust</label>
+                              </object>
+                              <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                            </object>
+                            <object class="sizeritem">
+                              <object class="wxBoxSizer">
+                                <object class="sizeritem">
+                                  <object class="FloatSpin" name="lut3d_hdr_ambient_luminance_ctrl">
+                                    <size>75,-1</size>
+                                    <min_val>0.01</min_val>
+                                    <max_val>10000</max_val>
+                                    <increment>0.01</increment>
+                                    <digits>2</digits>
+                                  </object>
+                                  <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                                </object>
+                                <object class="sizeritem">
+                                  <object class="wxStaticText" name="lut3d_hdr_ambient_luminance_ctrl_label">
+                                    <label>cd/m²</label>
+                                  </object>
+                                  <flag>wxLEFT|wxALIGN_CENTRE_VERTICAL</flag>
+                                  <border>4</border>
+                                </object>
+                                <orient>wxHORIZONTAL</orient>
+                              </object>
+                            </object>
+                            <object class="sizeritem">
+                              <object class="wxStaticText" name="lut3d_hdr_system_gamma_label">
+                                <label>3dlut.hdr.system_gamma</label>
+                              </object>
+                              <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                            </object>
+                            <object class="sizeritem">
+                              <object class="wxStaticText" name="lut3d_hdr_system_gamma_txt">
+                              </object>
+                              <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                            </object>
+                            <object class="sizeritem">
+                              <object class="wxStaticText" name="lut3d_content_colorspace_label">
+                                <label>3dlut.content.colorspace</label>
+                              </object>
+                              <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                            </object>
+                            <object class="sizeritem">
+                              <object class="wxChoice" name="lut3d_content_colorspace_ctrl">
+                              </object>
+                              <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                            </object>
+                            <object class="spacer"/>
+                            <object class="sizeritem">
+                              <object class="wxFlexGridSizer">
+                                <object class="sizeritem">
+                                  <object class="wxStaticText" name="lut3d_content_colorspace_w_label">
+                                    <label>white</label>
+                                  </object>
+                                  <flag>wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                                  <border>8</border>
+                                </object>
+                                <object class="sizeritem">
+                                  <object class="FloatSpin" name="lut3d_content_colorspace_white_x">
+                                    <size>75, -1</size>
+                                    <min_val>-1.0</min_val>
+                                    <max_val>1.0</max_val>
+                                    <increment>0.0001</increment>
+                                    <digits>4</digits>
+                                  </object>
+                                  <flag>wxRIGHT</flag>
+                                  <border>4</border>
+                                </object>
+                                <object class="sizeritem">
+                                  <object class="wxStaticText" name="lut3d_content_colorspace_white_x_label">
+                                    <label>x</label>
+                                  </object>
+                                  <flag>wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                                  <border>8</border>
+                                </object>
+                                <object class="sizeritem">
+                                  <object class="FloatSpin" name="lut3d_content_colorspace_white_y">
+                                    <size>75, -1</size>
+                                    <min_val>-1.0</min_val>
+                                    <max_val>1.0</max_val>
+                                    <increment>0.0001</increment>
+                                    <digits>4</digits>
+                                  </object>
+                                  <flag>wxRIGHT</flag>
+                                  <border>4</border>
+                                </object>
+                                <object class="sizeritem">
+                                  <object class="wxStaticText" name="lut3d_content_colorspace_white_y_label">
+                                    <label>y</label>
+                                  </object>
+                                  <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                                </object>
+                                <object class="sizeritem">
+                                  <object class="wxStaticText" name="lut3d_content_colorspace_r_label">
+                                    <label>red</label>
+                                  </object>
+                                  <flag>wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                                  <border>8</border>
+                                </object>
+                                <object class="sizeritem">
+                                  <object class="FloatSpin" name="lut3d_content_colorspace_red_x">
+                                    <size>75, -1</size>
+                                    <min_val>-1.0</min_val>
+                                    <max_val>1.0</max_val>
+                                    <increment>0.0001</increment>
+                                    <digits>4</digits>
+                                  </object>
+                                  <flag>wxRIGHT</flag>
+                                  <border>4</border>
+                                </object>
+                                <object class="sizeritem">
+                                  <object class="wxStaticText" name="lut3d_content_colorspace_red_x_label">
+                                    <label>x</label>
+                                  </object>
+                                  <flag>wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                                  <border>8</border>
+                                </object>
+                                <object class="sizeritem">
+                                  <object class="FloatSpin" name="lut3d_content_colorspace_red_y">
+                                    <size>75, -1</size>
+                                    <min_val>-1.0</min_val>
+                                    <max_val>1.0</max_val>
+                                    <increment>0.0001</increment>
+                                    <digits>4</digits>
+                                  </object>
+                                  <flag>wxRIGHT</flag>
+                                  <border>4</border>
+                                </object>
+                                <object class="sizeritem">
+                                  <object class="wxStaticText" name="lut3d_content_colorspace_red_y_label">
+                                    <label>y</label>
+                                  </object>
+                                  <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                                </object>
+                                <object class="sizeritem">
+                                  <object class="wxStaticText" name="lut3d_content_colorspace_g_label">
+                                    <label>green</label>
+                                  </object>
+                                  <flag>wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                                  <border>8</border>
+                                </object>
+                                <object class="sizeritem">
+                                  <object class="FloatSpin" name="lut3d_content_colorspace_green_x">
+                                    <size>75, -1</size>
+                                    <min_val>-1.0</min_val>
+                                    <max_val>1.0</max_val>
+                                    <increment>0.0001</increment>
+                                    <digits>4</digits>
+                                  </object>
+                                  <flag>wxRIGHT</flag>
+                                  <border>4</border>
+                                </object>
+                                <object class="sizeritem">
+                                  <object class="wxStaticText" name="lut3d_content_colorspace_green_x_label">
+                                    <label>x</label>
+                                  </object>
+                                  <flag>wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                                  <border>8</border>
+                                </object>
+                                <object class="sizeritem">
+                                  <object class="FloatSpin" name="lut3d_content_colorspace_green_y">
+                                    <size>75, -1</size>
+                                    <min_val>-1.0</min_val>
+                                    <max_val>1.0</max_val>
+                                    <increment>0.0001</increment>
+                                    <digits>4</digits>
+                                  </object>
+                                  <flag>wxRIGHT</flag>
+                                  <border>4</border>
+                                </object>
+                                <object class="sizeritem">
+                                  <object class="wxStaticText" name="lut3d_content_colorspace_green_y_label">
+                                    <label>y</label>
+                                  </object>
+                                  <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                                </object>
+                                <object class="sizeritem">
+                                  <object class="wxStaticText" name="lut3d_content_colorspace_b_label">
+                                    <label>blue</label>
+                                  </object>
+                                  <flag>wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                                  <border>8</border>
+                                </object>
+                                <object class="sizeritem">
+                                  <object class="FloatSpin" name="lut3d_content_colorspace_blue_x">
+                                    <size>75, -1</size>
+                                    <min_val>-1.0</min_val>
+                                    <max_val>1.0</max_val>
+                                    <increment>0.0001</increment>
+                                    <digits>4</digits>
+                                  </object>
+                                  <flag>wxRIGHT</flag>
+                                  <border>4</border>
+                                </object>
+                                <object class="sizeritem">
+                                  <object class="wxStaticText" name="lut3d_content_colorspace_blue_x_label">
+                                    <label>x</label>
+                                  </object>
+                                  <flag>wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                                  <border>8</border>
+                                </object>
+                                <object class="sizeritem">
+                                  <object class="FloatSpin" name="lut3d_content_colorspace_blue_y">
+                                    <size>75, -1</size>
+                                    <min_val>-1.0</min_val>
+                                    <max_val>1.0</max_val>
+                                    <increment>0.0001</increment>
+                                    <digits>4</digits>
+                                  </object>
+                                  <flag>wxRIGHT</flag>
+                                  <border>4</border>
+                                </object>
+                                <object class="sizeritem">
+                                  <object class="wxStaticText" name="lut3d_content_colorspace_blue_y_label">
+                                    <label>y</label>
+                                    <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                                  </object>
+                                </object>
+                                <cols>5</cols>
+                                <rows>0</rows>
+                                <vgap>8</vgap>
+                                <hgap>0</hgap>
+                              </object>
+                            </object>
+                            <cols>2</cols>
+                            <rows>0</rows>
+                            <vgap>8</vgap>
+                            <hgap>8</hgap>
+                          </object>
+                          <flag>wxBOTTOM</flag>
+                          <border>8</border>
+                        </object>
+                        <orient>wxHORIZONTAL</orient>
+                      </object>
+                      <flag>wxLEFT</flag>
+                      <border>18</border>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxBoxSizer">
+                        <object class="sizeritem">
+                          <object class="wxStaticText" name="lut3d_trc_black_output_offset_label">
+                            <label>calibration.black_output_offset</label>
+                            <enabled>0</enabled>
+                          </object>
+                          <flag>wxLEFT|wxALIGN_CENTRE_VERTICAL</flag>
+                          <border>18</border>
+                        </object>
+                        <object class="sizeritem">
+                          <object class="wxBoxSizer">
+                            <object class="sizeritem">
+                              <object class="wxSlider" name="lut3d_trc_black_output_offset_ctrl">
+                                <size>128,-1</size>
+                                <min>0</min>
+                                <max>100</max>
+                                <enabled>0</enabled>
+                                <XRCED>
+                                  <events>EVT_SLIDER</events>
+                                </XRCED>
+                              </object>
+                              <flag>wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                              <border>4</border>
+                            </object>
+                            <object class="sizeritem">
+                              <object class="wxSpinCtrl" name="lut3d_trc_black_output_offset_intctrl">
+                                <size>65,-1</size>
+                                <min>0</min>
+                                <max>100</max>
+                                <enabled>0</enabled>
+                                <XRCED>
+                                  <events>EVT_TEXT</events>
+                                </XRCED>
+                              </object>
+                              <flag>wxLEFT|wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                              <border>4</border>
+                            </object>
+                            <object class="sizeritem">
+                              <object class="wxStaticText" name="lut3d_trc_black_output_offset_intctrl_label">
+                                <label>%</label>
+                                <enabled>0</enabled>
+                                <hidden>1</hidden>
+                              </object>
+                              <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                            </object>
+                            <orient>wxHORIZONTAL</orient>
+                          </object>
+                          <flag>wxLEFT|wxALIGN_CENTRE_VERTICAL</flag>
+                          <border>8</border>
+                        </object>
+                        <orient>wxHORIZONTAL</orient>
+                      </object>
+                    </object>
+                    <cols>1</cols>
+                    <growablecols>0</growablecols>
+                  </object>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxCheckBox" name="abstract_profile_cb">
+                    <label>3dlut.use_abstract_profile</label>
+                  </object>
+                  <flag>wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                  <border>8</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="FileBrowseButtonWithHistory" name="abstract_profile_ctrl">
+                    <message>profile.abstract</message>
+                    <toolTip>3dlut.use_abstract_profile</toolTip>
+                    <wildcard>filetype.icc|*.icc;*.icm</wildcard>
+                  </object>
+                  <flag>wxEXPAND|wxALIGN_CENTRE_VERTICAL</flag>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxStaticText" name="output_profile_label">
+                    <label>output.profile</label>
+                  </object>
+                  <flag>wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                  <border>8</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxBoxSizer">
+                    <object class="sizeritem">
+                      <object class="FileBrowseButtonWithHistory" name="output_profile_ctrl">
+                        <message>output.profile</message>
+                        <toolTip>output.profile</toolTip>
+                        <wildcard>filetype.icc|*.icc;*.icm</wildcard>
+                      </object>
+                      <option>1</option>
+                      <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxButton" name="output_profile_current_btn">
+                        <label>profile.current</label>
+                      </object>
+                      <flag>wxLEFT|wxALIGN_CENTRE_VERTICAL</flag>
+                      <border>8</border>
+                    </object>
+                    <orient>wxHORIZONTAL</orient>
+                  </object>
+                  <option>1</option>
+                  <flag>wxEXPAND</flag>
+                </object>
+                <object class="spacer"/>
+                <object class="sizeritem">
+                  <object class="wxCheckBox" name="lut3d_apply_cal_cb">
+                    <label>apply_cal</label>
+                    <enabled>0</enabled>
+                  </object>
+                  <flag>wxBOTTOM</flag>
+                  <border>4</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxStaticText" name="gamut_mapping_mode">
+                    <label>gamut_mapping.mode</label>
+                  </object>
+                  <flag>wxTOP|wxALIGN_CENTRE_VERTICAL</flag>
+                  <border>4</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxRadioButton" name="gamut_mapping_inverse_a2b">
+                    <label>gamut_mapping.mode.inverse_a2b</label>
+                    <enabled>0</enabled>
+                    <style>wxRB_GROUP</style>
+                  </object>
+                  <flag>wxTOP</flag>
+                  <border>4</border>
+                </object>
+                <object class="spacer"/>
+                <object class="sizeritem">
+                  <object class="wxRadioButton" name="gamut_mapping_b2a">
+                    <label>gamut_mapping.mode.b2a</label>
+                    <enabled>0</enabled>
+                  </object>
+                  <flag>wxBOTTOM</flag>
+                  <border>4</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxStaticText" name="lut3d_rendering_intent_label">
+                    <label>rendering_intent</label>
+                  </object>
+                  <flag>wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                  <border>8</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxBoxSizer">
+                    <object class="sizeritem">
+                      <object class="wxChoice" name="lut3d_rendering_intent_ctrl">
+                      </object>
+                      <flag>wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                      <border>8</border>
+                    </object>
+                    <orient>wxHORIZONTAL</orient>
+                  </object>
+                  <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxStaticText">
+                    <label>3dlut.format</label>
+                  </object>
+                  <flag>wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                  <border>8</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxBoxSizer">
+                    <object class="sizeritem">
+                      <object class="wxChoice" name="lut3d_format_ctrl">
+                        <selection>0</selection>
+                      </object>
+                      <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxChoice" name="lut3d_hdr_display_ctrl">
+                        <content>
+                          <item>3dlut.format.madVR.hdr_to_sdr</item>
+                          <item>3dlut.format.madVR.hdr</item>
+                        </content>
+                        <selection>0</selection>
+                      </object>
+                      <flag>wxLEFT|wxALIGN_CENTRE_VERTICAL</flag>
+                      <border>8</border>
+                    </object>
+                    <orient>wxHORIZONTAL</orient>
+                  </object>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxStaticText" name="encoding_input_label">
+                    <label>3dlut.encoding.input</label>
+                    <hidden>1</hidden>
+                  </object>
+                  <flag>wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                  <border>8</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxChoice" name="encoding_input_ctrl">
+                    <selection>4</selection>
+                    <hidden>1</hidden>
+                  </object>
+                  <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxStaticText" name="encoding_output_label">
+                    <label>3dlut.encoding.output</label>
+                    <hidden>1</hidden>
+                  </object>
+                  <flag>wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                  <border>8</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxChoice" name="encoding_output_ctrl">
+                    <selection>4</selection>
+                    <hidden>1</hidden>
+                  </object>
+                  <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxStaticText" name="lut3d_size_label">
+                    <label>3dlut.size</label>
+                  </object>
+                  <flag>wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                  <border>8</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxChoice" name="lut3d_size_ctrl">
+                    <selection>0</selection>
+                  </object>
+                  <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxStaticText" name="lut3d_bitdepth_input_label">
+                    <label>3dlut.bitdepth.input</label>
+                  </object>
+                  <flag>wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                  <border>8</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxChoice" name="lut3d_bitdepth_input_ctrl">
+                    <selection>4</selection>
+                  </object>
+                  <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxStaticText" name="lut3d_bitdepth_output_label">
+                    <label>3dlut.bitdepth.output</label>
+                  </object>
+                  <flag>wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                  <border>8</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxChoice" name="lut3d_bitdepth_output_ctrl">
+                    <selection>4</selection>
+                  </object>
+                  <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                </object>
+                <cols>2</cols>
+                <rows>0</rows>
+                <vgap>8</vgap>
+                <growablecols>1</growablecols>
+              </object>
+              <option>1</option>
+              <flag>wxALL|wxEXPAND</flag>
+              <border>12</border>
+            </object>
+          </object>
+        </object>
+        <option>1</option>
+        <flag>wxEXPAND</flag>
+      </object>
+      <object class="sizeritem">
+        <object class="wxPanel" name="separator">
+          <bg>wxSYS_COLOUR_3DLIGHT</bg>
+        </object>
+        <flag>wxEXPAND</flag>
+      </object>
+      <object class="sizeritem">
+        <object class="wxPanel" name="buttonpanel">
+          <object class="wxGridSizer">
+            <object class="sizeritem">
+              <object class="wxButton" name="lut3d_create_btn">
+                <label>3dlut.create</label>
+              </object>
+              <flag>wxALIGN_RIGHT|wxALL</flag>
+              <border>12</border>
+            </object>
+          </object>
+        </object>
+        <flag>wxEXPAND</flag>
+      </object>
+    </object>
+    <pos>-1,100</pos>
+    <title>3dlut.frame.title</title>
+    <style>wxDEFAULT_FRAME_STYLE</style>
+    <XRCED>
+      <events>EVT_CLOSE</events>
+    </XRCED>
+  </object>
+</resource>

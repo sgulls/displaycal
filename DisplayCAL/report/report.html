@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>${REPORT_TYPE} Report ${REPORT_VERSION} — ${DISPLAY} — ${DATETIME}</title>
+	<style type="text/css">
+		@import "base.css";
+	</style>
+	<style type="text/css" media="screen,projection,tv">
+		@import "compare.css";
+	</style>
+	<style type="text/css" media="print">
+		@import "print.css";
+	</style>
+	<script type="text/javascript" src="jsapi-packages.js"></script>
+	<script type="text/javascript" src="jsapi-patches.js"></script>
+	<script type="text/javascript" src="compare.functions.js"></script>
+	<script type="text/javascript" src="compare.constants.js"></script>
+	<script type="text/javascript">
+	//<![CDATA[
+	var CAL_ENTRYCOUNT = ${CAL_ENTRYCOUNT},
+		CAL_RGBLEVELS = ${CAL_RGBLEVELS},
+		CRITERIA_GRAYSCALE = ${GRAYSCALE},
+		SIMULATION_PROFILE = "${SIMULATION_PROFILE}",
+		TRC_GAMMA = ${TRC_GAMMA},
+		TRC_GAMMA_TYPE = "${TRC_GAMMA_TYPE}",
+		TRC_OUTPUT_OFFSET = ${TRC_OUTPUT_OFFSET},
+		TRC = "${TRC}",
+		WHITEPOINT_SIMULATION = ${WHITEPOINT_SIMULATION},
+		WHITEPOINT_SIMULATION_RELATIVE = ${WHITEPOINT_SIMULATION_RELATIVE},
+		DEVICELINK_PROFILE = "${DEVICELINK_PROFILE}";
+	//]]>
+	</script>
+	<script type="text/javascript" src="compare.variables.js"></script>
+	<script type="text/javascript" src="compare.init.js"></script>
+</head>
+<body>
+	<h1><span class="r"></span><span class="g"></span><span class="b"></span>${REPORT_TYPE} Report ${REPORT_VERSION}</h1>
+	<h2 id="reporttitle" class="legend">${DISPLAY} — ${DATETIME}</h2>
+	<div><noscript><p class="error">Please enable JavaScript</p></noscript></div>
+	<form action="#" id="F_data">
+		<div>
+			<input type="hidden" name="FF_display" value="${DISPLAY}" />
+			<input type="hidden" name="FF_instrument" value="${INSTRUMENT}" />
+			<input type="hidden" name="FF_correction_matrix" value="${CORRECTION_MATRIX}" />
+			<input type="hidden" name="FF_profile" value="${PROFILE}" />
+			<input type="hidden" name="FF_profile_whitepoint" value="${PROFILE_WHITEPOINT}" />
+			<input type="hidden" name="FF_profile_whitepoint_normalized" value="${PROFILE_WHITEPOINT_NORMALIZED}" />
+			<input type="hidden" name="FF_whitepoint" value="${WHITEPOINT}" />
+			<input type="hidden" name="FF_whitepoint_normalized" value="${WHITEPOINT_NORMALIZED}" />
+			<input type="hidden" name="FF_blackpoint" value="${BLACKPOINT}" />
+			<input type="hidden" name="FF_testchart" value="${TESTCHART}" />
+			<input type="hidden" name="FF_adaption" value="${ADAPTION}" />
+			<input type="hidden" name="FF_datetime" value="${DATETIME}" />
+			<input type="hidden" name="FF_data_in" value="${MEASURED}" />
+			<input type="hidden" name="FF_data_ref" value="${REF}" />
+			<input type="hidden" name="FF_report_version" value="${REPORT_VERSION}" />
+		</div>
+	</form>
+	<form action="#" id="F_out" onsubmit="return false">
+		<div id="report" class="fieldset process">
+			<p class="functions">
+				<button onclick="plaintext('ref')">View raw reference data</button>
+				<button onclick="plaintext('in')">View raw measurement data</button>
+			</p>
+			<p class="options">
+				<label for="FF_criteria" class="disabled">Evaluation criteria:</label>
+				<select name="FF_criteria" id="FF_criteria" onchange="compare()">
+				</select>
+			</p>
+			<p class="options">
+				<label for="FF_gray_balance_cal_only" class="disabled">Evaluate gray balance through calibration only:</label> <input type="checkbox" name="FF_gray_balance_cal_only" id="FF_gray_balance_cal_only" disabled="disabled" onchange="compare(false)" /><br />
+				<label for="FF_planckian" class="disabled">Use blackbody locus as assumed target whitepoint:</label> <input type="checkbox" name="FF_planckian" id="FF_planckian" ${PLANCKIAN} disabled="disabled" onchange="compare(false)" /><br />
+				<label for="FF_verbosestats" class="disabled">Show additional statistics:</label> <input type="checkbox" name="FF_verbosestats" id="FF_verbosestats" disabled="disabled" onchange="togglestats()" />
+			</p>
+			<p class="options">
+				<label for="FF_mode" class="disabled">Show values as:</label> <select name="FF_mode" id="FF_mode" disabled="disabled" onchange="compare(false)">
+					<option value="Lab">L*a*b*</option>
+					<option value="Lu'v'">L*u'v'</option>
+					<option value="XYZ">XYZ</option>
+					<option value="xyY">xyY</option>
+					<option value="ICtCp">ICtCp</option>
+				</select><br />
+				<label for="FF_absolute" class="disabled">Use absolute values:</label> <input type="checkbox" name="FF_absolute" id="FF_absolute" disabled="disabled" onchange="compare(false)" /><br />
+				<label for="FF_use_profile_wp_as_ref" class="disabled">Use display profile whitepoint as reference white:</label> <input type="checkbox" name="FF_use_profile_wp_as_ref" id="FF_use_profile_wp_as_ref" disabled="disabled" onchange="compare(false)" /><br />
+				<label for="FF_delta_calc_method" class="disabled">Color distance metric:</label>
+				<select name="FF_delta_calc_method" id="FF_delta_calc_method" disabled="disabled" onchange="compare(false)">
+					<option value="CIE76">ΔE*76</option>
+					<option value="CIE94">ΔE*94</option>
+					<option value="CIE00">ΔE*00</option>
+					<option value="ICtCp">ΔICtCp</option>
+				</select>
+			</p>
+			<div id="result"></div>
+		</div>
+	</form>
+</body>
+</html>

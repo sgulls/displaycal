@@ -1,0 +1,35 @@
+#F_data, .options, .functions {
+	display: none;
+}
+body {
+	background: white;
+	font-size: .75em;
+	padding: 1em;
+}
+h1 {
+	background: #333333;
+	border-radius: 1.1em;
+	-moz-border-radius: 1.1em;
+	-webkit-border-radius: 1.1em;
+	color: white;
+	display: block;
+	font-size: 1em;
+	font-weight: normal;
+	margin: 0 auto .5em;
+	padding: .5em .9em;
+	width: 19em;
+}
+h2 {
+	font-weight: lighter;
+	font-size: 2em;
+}
+p {
+	line-height: 1.5em;
+}
+.graph th,
+.graph tr.x td {
+	background: #fff;
+}
+.collapsed {
+	display: none;
+}
